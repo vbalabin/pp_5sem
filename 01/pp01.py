@@ -6,7 +6,7 @@ def validate(INPUT_XML):
     try:
         etree.parse(INPUT_XML, parser)
     except Exception as e:
-        print('Validation has failed')
+        print('Validation has been failed')
         print(f'\t>>>: {e}')
         return True
 
