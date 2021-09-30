@@ -8,15 +8,15 @@
     <body>
         <h2>Поиск</h2>
         <div class="form-wrapper">
-            <div class="line-wraooer">
+            <div class="line-wrapper">
                 <label for="name">Номер cотрудника:</label>
                 <input class="confirm-text" type="text" id="eid" name="eid">
-                <input class="confirm-btn" type="submit" value="Подтвердить имя">
+                <input class="confirm-btn" type="submit" id="confirm-id-btn" value="Подтвердить номер">
             </div>
-            <div class="line-wraooer">
+            <div class="line-wrapper">
                 <label for="ename">Имя сотрудника:</label>
                 <input class="confirm-text" type="text" id="ename" name="ename">
-                <input class="confirm-btn" type="submit" value="Подтвердить номер">
+                <input class="confirm-btn" type="submit" id= "ename-btn" value="Подтвердить имя">
             </div>
             <br><br>
             <div class="elementHolder">
@@ -30,7 +30,6 @@
         </div>
         <br><br>        
 
-  
         <h2>Сотрудники</h2>
         <div class="table-wrapper">
             <table class="fl-table">
@@ -45,7 +44,7 @@
                     <th>Удалить</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="fl-tbody">
                 <tr>
                     <td class="checkbox">
                         <input type="checkbox">
@@ -157,8 +156,5 @@
                 <tbody>
             </table>
         </div>
-
-
-
     </body>
 </html>
