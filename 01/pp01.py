@@ -17,7 +17,7 @@ def dump(OUTPUT_XML):
         tree.write(f, encoding='utf-8')    
 
 if __name__ == '__main__':
-    INPUT_XML = 'task1_input.xml'
+    INPUT_XML = 'group.xml'
     OUTPUT_XML = 'task1_output.xml'
 
     failed = validate(INPUT_XML)
