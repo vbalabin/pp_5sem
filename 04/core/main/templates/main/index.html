@@ -8,129 +8,39 @@
     </head>
     <body>
 
+        <br><br>        
+        <div class="elementHolder">
+            <a class="create-link" href="{% url 'add' %}">Добавить сотрудника</a> 
+        </div>
+        <br><br>       
+
         <h2>Сотрудники</h2>
         <div class="table-wrapper">
             <table class="fl-table">
                 <thead>
                 <tr>
-                    <th>-</th>
                     <th>ID</th>
                     <th>Имя</th>
                     <th>Должность</th>
                     <th>Дата зачисления</th>
                     <th>Департамент</th>
-                    <th>Удалить</th>
+                    <th>Активен</th>
                 </tr>
                 </thead>
                 <tbody id="fl-tbody">
+                {% for e in employees %}
+
                 <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>
-                    <td><a class="fl-link-empl" href="#ref">s32a</a> </td>
-                    <td>Максим</td>
-                    <td>Software Developer</td>
-                    <td>2012-09-02</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
+                    <td>{{ e.id }}</td>
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.position }}</td>
+                    <td>{{ e.enlisted }}</td>
+                    <td>{{ e.department }}</td>
+                    <td>{{ e.is_active }}</td>
                 </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">vas4</a> </td>
-                    <td>Константин</td>
-                    <td>Software Achitector</td>
-                    <td>2019-07-12</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">5gdf</a> </td>
-                    <td>Александр</td>
-                    <td>Software Developer</td>
-                    <td>2011-02-21</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">3vfs</a> </td>
-                    <td>Владимир</td>
-                    <td>DevOps Engineer</td>
-                    <td>2012-03-23</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">7z85</a> </td>
-                    <td>Константин</td>
-                    <td>Product Manager</td>
-                    <td>2014-12-27</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">jk90</a> </td>
-                    <td>Сергей</td>
-                    <td>Software Developer</td>
-                    <td>2017-06-02</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">9sdf</a> </td>
-                    <td>Алексей</td>
-                    <td>Team Lead</td>
-                    <td>2015-01-29</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">27hd</a> </td>
-                    <td>Евгений</td>
-                    <td>Project Manager</td>
-                    <td>2015-08-12</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">ja9s</a> </td>
-                    <td>Михаил</td>
-                    <td>Software Developer</td>
-                    <td>2012-08-05</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
-                <tr>
-                    <td class="checkbox">
-                        <input type="checkbox">
-                    </td>                    
-                    <td><a class="fl-link-empl" href="#ref">7hsd</a> </td>
-                    <td>Андрей</td>
-                    <td>QA Engineer</td>
-                    <td>2016-03-24</td>
-                    <td>Software Development</td>
-                    <td><a class="fl-link-empl" href="#ref">ref.</a> </td>
-                </tr>
+                
+                {% endfor %}
+
                 <tbody>
             </table>
         </div>
@@ -138,25 +48,11 @@
         <div class="table-wrapper">
             <form action="{% url 'main' %} " method="POST">
                 {% csrf_token %}
-                <div id="mega-dj">
-                    <table>
-                        <tr>
-                            {% for f in add_form %}
-                                <td>
-                                    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
-                                    <div class="form-error">{{ f.errors }}</div>
-                                </td>
-                            {% endfor %}
-                        </tr>                    
-                        
-                    </table>
-                    <button type="submit">Добавить</button>
-                </div>
 
-                <div id="mega-dj">
+                <div class="div-dj">
                     {% for f in del_form %}
-                        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
                         <div class="form-error">{{ f.errors }}</div>
+                        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
                     {% endfor %}
                     <button type="submit">Удалить</button>
                 </div>

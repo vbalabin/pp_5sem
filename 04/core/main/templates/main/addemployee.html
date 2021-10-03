@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ru'>
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'main/css/style.css' %}"/>
+        <title>Балабин ИВТ-93. Практическая работа.</title>
+    </head>
+    <body>
+
+        <br><br>        
+        <div class="elementHolder">
+            <a class="create-link" href="{% url 'main' %}">На главную</a> 
+        </div>
+        <br><br> 
+
+        <div class="table-wrapper">
+            <form action="{% url 'add' %} " method="POST">
+                {% csrf_token %}
+
+                <div class="div-dj">
+                    <table>
+                        <tr>
+                            {% for f in add_form %}
+                                <td>
+                                    <div class="form-error">{{ f.errors }}</div>
+                                    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
+                                </td>
+                            {% endfor %}
+                        </tr>                    
+                        
+                    </table>
+                    <button type="submit">Добавить</button>
+                </div>
+
+            </form>        
+        </div>
+
+    </body>
+</html>
