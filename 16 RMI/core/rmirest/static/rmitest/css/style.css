@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    max-width: 800px;
+    margin: 0 auto;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    white-space: nowrap;   
+    padding: 10px;      
+}
