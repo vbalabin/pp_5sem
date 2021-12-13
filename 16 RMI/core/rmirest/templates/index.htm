@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ru'>
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'rmitest/css/style.css' %}"/>
+        <title>ПП. Практическая работа.</title>
+    </head>
+    <body>
+        <br><br>        
+        <div class="info">
+            <h3>parameters:</h3>
+            <p>op1</p>
+            <p>op2</p>
+            <p>math</p>
+        </div>
+        <br><br>       
+
+        <div class="wrapper">
+
+                {% if not result is None %}
+                    operand1: {{ a }}<br>
+                    operand: {{ m }}<br>
+                    operand2: {{ b }}<br>
+                    result: {{ result }}<br>
+                {% else %}
+                    None.
+                {% endif %}
+
+        </div>
+    </body>
+</html>
